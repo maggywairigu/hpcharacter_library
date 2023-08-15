@@ -4,9 +4,19 @@ import { motion } from 'framer-motion'
 import { fadeIn, textVariant } from '@/utils/motion'
 import Image from 'next/image';
 
-function CardTemplate() {
+interface CharacterCardProps {
+    image: string;
+    name: string;
+    dateOfBirth: string;
+  }
+  
+  const imageStyle = {
+    borderRadius: '15px',
+    border: '1px solid #fff',
+  }
+  const CardTemplate: React.FC<CharacterCardProps> = ({ image, name, dateOfBirth }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", 0.5, 0.75)}>
+    <motion.div variants={fadeIn("right", "spring", 0.5 , 0.75)} className='w-full p-[1px] rounded-[20px]'>
         <Tilt
             options={{
                 max: 45,
@@ -15,24 +25,25 @@ function CardTemplate() {
               }}
             className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% p-5 rounded-2xl sm:w-[360px] w-full"
         >
-            <div className='relative w-full h-[230px]'>
+            <div className='relative flex items-center'>
             <Image 
-                src='/hpLogo.png'
-                width={100}
-                height={500}
-                alt='HP Library'
+                src={image}
+                width={300}
+                height={15}
+                alt={name}
+                style={imageStyle}
             />
             </div>
-            <div className='mt-5'>
-          <h3 className='text-primary font-bold text-[24px]'>Name:</h3>
-          <p className='mt-2 text-secondary text-[14px]'></p>
-          <h3 className='text-primary font-bold text-[24px]'>Date of Birth:</h3>
-          <p className='mt-2 text-secondary text-[14px]'></p>
+            <div className='m-5'>
+          <h1 className='text-primary font-bold text-[24px]'>Name :</h1>
+          <h3 className='mt-2 text-secondary text-[14px] p-5px'>{name}</h3>
+          <h1 className='text-primary font-bold text-[24px]'>Date of Birth:</h1>
+          <h3 className='mt-2 text-secondary text-[14px] p-5px'>{dateOfBirth}</h3>
         </div>
 
         <button
             onClick={() => window.open("_blank")}
-            className='black-gradient w-100 h-30 flex justify-center items-center cursor-pointer'>
+            className=' text-white font-bold black-gradient w-[300px] h-[50px] rounded-t-lg flex justify-center items-center cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-pink-500 hover:to-yellow-500'>
               View
             </button>
         </Tilt>
