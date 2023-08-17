@@ -37,7 +37,7 @@ const Characters = () => {
   const [loading, setLoading] = useState(false);
   const [allCards, setAllCards] = useState([]);
   const [searchText, setSearchText] = useState('');
-  const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [searchTimeout, setSearchTimeout] = useState<number | undefined>(undefined);
   const [searchedResults, setSearchedResults] = useState(null);
 
   const fetchCards = async () => {
