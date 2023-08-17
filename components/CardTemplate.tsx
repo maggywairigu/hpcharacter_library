@@ -5,18 +5,22 @@ import { fadeIn, textVariant } from '@/utils/motion'
 import Image from 'next/image';
 import Link from 'next/link';
 
+
 interface CharacterCardProps {
     image: string;
     name: string;
     dateOfBirth: string;
     id: string;
+    house: string;
+   
   }
   
   const imageStyle = {
     borderRadius: '15px',
     border: '1px solid #fff',
   }
-  const CardTemplate: React.FC<CharacterCardProps> = ({ image, name, dateOfBirth, id }) => {
+  const CardTemplate: React.FC<CharacterCardProps> = ({ image, name, dateOfBirth, id, house }) => {
+
   return (
     <motion.div variants={fadeIn("right", "spring", 0.5 , 0.75)} className='w-full p-[1px] rounded-[20px]'>
         <Tilt
