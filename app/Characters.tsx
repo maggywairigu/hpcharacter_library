@@ -12,7 +12,11 @@ interface Character {
  
 }
 
-const RenderCards = ({ data }: { data: Character[] | null }) => {
+interface RenderCardsProps {
+  data: Character[];
+}
+
+const RenderCards: React.FC<RenderCardsProps> = ({ data }: { data: Character[] | null }) => {
   console.log("RenderCards data:", data);
   if (data && data.length > 0) {
     return data.map(character => (
