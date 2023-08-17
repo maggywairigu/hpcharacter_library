@@ -1,12 +1,24 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import CardTemplate from './CardTemplate';
-import Search from './Search';
-import Loader from './Loader';
+import CardTemplate from '../components/CardTemplate';
+import Search from '../components/Search';
+import Loader from '../components/Loader';
 
-const RenderCards = ({ data }) => {
+interface Character {
+  image: string;
+  name: string;
+  dateOfBirth: string;
+  id: string;
+ 
+}
+
+interface RenderCardsProps {
+  data: Character[];
+}
+
+const RenderCards: React.FC<RenderCardsProps> = ({ data }: { data: Character[] | null }) => {
   console.log("RenderCards data:", data);
-  if (data?.length > 0) {
+  if (data && data.length > 0) {
     return data.map(character => (
       <CardTemplate
         key={character.id}
@@ -14,7 +26,6 @@ const RenderCards = ({ data }) => {
         name={character.name}
         dateOfBirth={character.dateOfBirth}
         id={character.id}
-        house={character.house}
       />
     ));
   }
@@ -26,7 +37,7 @@ const Characters = () => {
   const [loading, setLoading] = useState(false);
   const [allCards, setAllCards] = useState([]);
   const [searchText, setSearchText] = useState('');
-  const [searchTimeout, setSearchTimeout] = useState(null);
+  const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
   const [searchedResults, setSearchedResults] = useState(null);
 
   const fetchCards = async () => {
@@ -36,7 +47,9 @@ const Characters = () => {
       const response = await fetch('https://hp-api.onrender.com/api/characters');
       if (response.ok) {
         const result = await response.json();
+        console.log("Fetched data:", result);
         setAllCards(result);
+        setCharacters(result);
       }
     } catch (err) {
       console.error(err);
@@ -50,10 +63,10 @@ const Characters = () => {
   }, []);
 
   useEffect(() => {
-    console.log("Characters state:", characters); // Add this line
+    console.log("Characters state:", characters); 
   }, [characters]);
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchTextValue = e.target.value.toLowerCase();
     setSearchText(searchTextValue);
   
@@ -90,17 +103,17 @@ const Characters = () => {
             <Loader />
           </div>
         ) : (
-          <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3">
+          <div className="pt-[10px] grid lg:grid-cols-3 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-6 style={{ overflowY: 'auto', maxHeight: '500px' }}">
             {searchText ? (
               <RenderCards data={searchedResults} />
             ) : (
               characters.map(character => (
                 <CardTemplate
                   image={character.image}
-                  key={character._id}
+                  key={character.id}
                   name={character.name}
                   dateOfBirth={character.dateOfBirth}
-                  id={character._id}
+                  id={character.id}
                 />
               ))
             )}

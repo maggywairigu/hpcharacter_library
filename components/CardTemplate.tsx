@@ -11,7 +11,6 @@ interface CharacterCardProps {
     name: string;
     dateOfBirth: string;
     id: string;
-    house: string;
    
   }
   
@@ -19,7 +18,7 @@ interface CharacterCardProps {
     borderRadius: '15px',
     border: '1px solid #fff',
   }
-  const CardTemplate: React.FC<CharacterCardProps> = ({ image, name, dateOfBirth, id, house }) => {
+  const CardTemplate: React.FC<CharacterCardProps> = ({ image, name, dateOfBirth, id }) => {
 
   return (
     <motion.div variants={fadeIn("right", "spring", 0.5 , 0.75)} className='w-full p-[1px] rounded-[20px]'>
@@ -48,9 +47,7 @@ interface CharacterCardProps {
         </div>
         
         <Link 
-          href={`/components/CharacterCard/${id}`}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={`/characters?id=${id}`}
           className=' text-white font-bold black-gradient w-[300px] h-[50px] rounded-t-lg flex justify-center items-center cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-pink-500 hover:to-yellow-500 '>
               View
   
