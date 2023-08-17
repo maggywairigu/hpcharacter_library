@@ -1,12 +1,20 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import CardTemplate from './CardTemplate';
-import Search from './Search';
-import Loader from './Loader';
+import CardTemplate from '../components/CardTemplate';
+import Search from '../components/Search';
+import Loader from '../components/Loader';
 
-const RenderCards = ({ data }) => {
+interface Character {
+  image: string;
+  name: string;
+  dateOfBirth: string;
+  id: string;
+ 
+}
+
+const RenderCards = ({ data }: { data: Character[] | null }) => {
   console.log("RenderCards data:", data);
-  if (data?.length > 0) {
+  if (data && data.length > 0) {
     return data.map(character => (
       <CardTemplate
         key={character.id}
@@ -14,7 +22,6 @@ const RenderCards = ({ data }) => {
         name={character.name}
         dateOfBirth={character.dateOfBirth}
         id={character.id}
-        house={character.house}
       />
     ));
   }
@@ -26,7 +33,7 @@ const Characters = () => {
   const [loading, setLoading] = useState(false);
   const [allCards, setAllCards] = useState([]);
   const [searchText, setSearchText] = useState('');
-  const [searchTimeout, setSearchTimeout] = useState(null);
+  const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
   const [searchedResults, setSearchedResults] = useState(null);
 
   const fetchCards = async () => {
@@ -55,7 +62,7 @@ const Characters = () => {
     console.log("Characters state:", characters); 
   }, [characters]);
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchTextValue = e.target.value.toLowerCase();
     setSearchText(searchTextValue);
   
