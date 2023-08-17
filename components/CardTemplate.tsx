@@ -48,9 +48,7 @@ interface CharacterCardProps {
         </div>
         
         <Link 
-          href={`/components/CharacterCard/${id}`}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={`/components/CharacterCard?id=${id}`}
           className=' text-white font-bold black-gradient w-[300px] h-[50px] rounded-t-lg flex justify-center items-center cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-pink-500 hover:to-yellow-500 '>
               View
   

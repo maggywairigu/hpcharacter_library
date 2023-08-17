@@ -36,7 +36,9 @@ const Characters = () => {
       const response = await fetch('https://hp-api.onrender.com/api/characters');
       if (response.ok) {
         const result = await response.json();
+        console.log("Fetched data:", result);
         setAllCards(result);
+        setCharacters(result);
       }
     } catch (err) {
       console.error(err);
@@ -50,7 +52,7 @@ const Characters = () => {
   }, []);
 
   useEffect(() => {
-    console.log("Characters state:", characters); // Add this line
+    console.log("Characters state:", characters); 
   }, [characters]);
 
   const handleSearchChange = (e) => {
@@ -90,17 +92,17 @@ const Characters = () => {
             <Loader />
           </div>
         ) : (
-          <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3">
+          <div className="pt-[10px] grid lg:grid-cols-3 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-6 style={{ overflowY: 'auto', maxHeight: '500px' }}">
             {searchText ? (
               <RenderCards data={searchedResults} />
             ) : (
               characters.map(character => (
                 <CardTemplate
                   image={character.image}
-                  key={character._id}
+                  key={character.id}
                   name={character.name}
                   dateOfBirth={character.dateOfBirth}
-                  id={character._id}
+                  id={character.id}
                 />
               ))
             )}

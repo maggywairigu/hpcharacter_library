@@ -4,11 +4,11 @@ import { useRouter } from 'next/router';
 const CharacterCard: React.FC = () => {
   const router = useRouter();
   const { id } = router.query;
-  const [character, setCharacter] = useState<any>({}); // Change the type if needed
+  const [character, setCharacter] = useState<any>({}); 
 
   useEffect(() => {
     if (id) {
-      fetch(`https://hp-api.onrender.com/api/characters`)
+      fetch(`https://hp-api.onrender.com/api/characters/${id}`)
         .then(response => response.json())
         .then(data => setCharacter(data));
     }
