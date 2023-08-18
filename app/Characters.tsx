@@ -9,7 +9,6 @@ interface Character {
   name: string;
   dateOfBirth: string;
   id: string;
- 
 }
 
 interface RenderCardsProps {
@@ -33,14 +32,14 @@ const RenderCards: React.FC<RenderCardsProps> = ({ data }: { data: Character[] |
 };
 
 const Characters = () => {
-  const [characters, setCharacters] = useState<Character[]>([]); // Provide the correct type
+  const [characters, setCharacters] = useState<Character[]>([]);
   const [loading, setLoading] = useState(false);
-  const [allCards, setAllCards] = useState<Character[]>([]); // Provide the correct type
+  const [allCards, setAllCards] = useState<Character[]>([]);
   const [searchText, setSearchText] = useState('');
   const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | undefined>(
     undefined
   );
-  const [searchedResults, setSearchedResults] = useState<Character[] | null>(null); // Make sure to handle null case
+  const [searchedResults, setSearchedResults] = useState<Character[] | null>(null);
 
   const fetchCards = async () => {
     setLoading(true);
@@ -77,7 +76,7 @@ const Characters = () => {
     setSearchTimeout(
       setTimeout(() => {
         if (searchTextValue === "") {
-          setSearchedResults(null); // Set to null or an empty array
+          setSearchedResults(null);
         } else {
           const searchResult = allCards.filter(
             (character) =>
@@ -91,7 +90,7 @@ const Characters = () => {
   };
 
   return (
-    <div className="mt-[130px] mx-[130px] sm:w-auto">
+    <div className="mt-[130px] mx-4 md:mx-10 lg:mx-20 xl:mx-32">
       <Search
         type="text"
         name="text"
@@ -99,13 +98,13 @@ const Characters = () => {
         value={searchText}
         handleChange={handleSearchChange}
       />
-      <div>
+      <div className="mt-6">
         {loading ? (
           <div className="flex justify-center items-center">
             <Loader />
           </div>
         ) : (
-          <div className="pt-[10px] grid lg:grid-cols-3 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-6 style={{ overflowY: 'auto', maxHeight: '500px' }}">
+          <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6 overflow-y-auto max-h-700">
             {searchText ? (
               <RenderCards data={searchedResults} />
             ) : (
