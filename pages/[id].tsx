@@ -22,7 +22,7 @@ type Character = {
 
 const CharacterPage = () => {
   const router = useRouter();
-  const id = router.asPath.split('/').pop();
+  const id = router.query.id as string; 
   const { data, error } = useFetch(id);
   
 
