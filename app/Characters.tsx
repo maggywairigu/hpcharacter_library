@@ -13,7 +13,7 @@ interface Character {
 }
 
 interface RenderCardsProps {
-  data: Character[];
+  data: Character[] | null;
 }
 
 const RenderCards: React.FC<RenderCardsProps> = ({ data }: { data: Character[] | null }) => {
@@ -33,12 +33,14 @@ const RenderCards: React.FC<RenderCardsProps> = ({ data }: { data: Character[] |
 };
 
 const Characters = () => {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState<Character[]>([]); // Provide the correct type
   const [loading, setLoading] = useState(false);
-  const [allCards, setAllCards] = useState([]);
+  const [allCards, setAllCards] = useState<Character[]>([]); // Provide the correct type
   const [searchText, setSearchText] = useState('');
-  const [searchTimeout, setSearchTimeout] = useState<number | undefined>(undefined);
-  const [searchedResults, setSearchedResults] = useState(null);
+  const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | undefined>(
+    undefined
+  );
+  const [searchedResults, setSearchedResults] = useState<Character[] | null>(null); // Make sure to handle null case
 
   const fetchCards = async () => {
     setLoading(true);
