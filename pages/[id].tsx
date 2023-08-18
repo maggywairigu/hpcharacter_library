@@ -65,7 +65,7 @@ const CharacterPage = () => {
               <span className="char-label-background">Year of Birth </span> {character.yearOfBirth}
             </p>
             <p className="char-details char-wizard text-gray-600">
-              <span className="char-label-background">Wizard: </span> {character.wizard.toString()}
+              <span className="char-label-background">Wizard: </span> {character.wizard ? character.wizard.toString() : "Unknown"}
             </p>
             <p className="char-details char-species text-gray-600">
               <span className="char-label-background">Species: </span> {character.species}
