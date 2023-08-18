@@ -1,6 +1,14 @@
 import React from 'react';
 
-const Search = ({type, name, placeholder, value, handleChange}) => {
+interface SearchProps {
+    type: string;
+    name: string;
+    placeholder: string;
+    value: string;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  }
+
+const Search: React.FC<SearchProps> = ({ type, name, placeholder, value, handleChange }) => {
     return(
         <div>
              <input
