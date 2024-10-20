@@ -10,7 +10,7 @@ interface SearchProps {
 
 const Search: React.FC<SearchProps> = ({ type, name, placeholder, value, handleChange }) => {
     return(
-        <div>
+        <div  style={{backgroundColor: '#121212', padding: '15px'}}>
              <input
                 type={type}
                 id={name}

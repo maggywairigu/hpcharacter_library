@@ -1,12 +1,15 @@
 import Characters from "@/app/Characters";
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/Navbar';
+import Search from "@/components/Search";
 
 
 const Home = () => {
     return (
-        <div className='relative w-full h-screen mx-auto'>
-             <Navbar />           
-            <Characters />
+        <div className='w-full h-screen '>
+            <Navbar />  
+                     
+            <Characters/>
+        
         </div>
     )
 }
