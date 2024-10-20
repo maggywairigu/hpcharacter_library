@@ -17,6 +17,8 @@ function Navbar() {
                 alt='HP Library'
             />
         </Link>
+
+        
         
         <p className='text-white text-[24px] font-bold cursor-pointer flex'> Welcome !&nbsp;<span className='sm:block hidden'> | &nbsp;Harry Potter's character library</span></p>
       </div>

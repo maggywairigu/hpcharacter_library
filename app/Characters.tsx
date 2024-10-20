@@ -90,15 +90,21 @@ const Characters = () => {
   };
 
   return (
-    <div className="mt-[130px] mx-4 md:mx-10 lg:mx-20 xl:mx-32">
-      <Search
-        type="text"
-        name="text"
-        placeholder="Search character"
-        value={searchText}
-        handleChange={handleSearchChange}
-      />
-      <div className="mt-6">
+    <div className="mt-[85px] p-8 mx-4 md:mx-10 lg:mx-20 xl:mx-32">
+      <div className='fixed z-50' style={{position: 'fixed', backgroundColor: '#121212',
+        width: '100vw', padding: '50px'
+      }}>
+        <Search
+          type="text"
+          name="text"
+          placeholder="Search character"
+          value={searchText}
+          handleChange={handleSearchChange}
+        />
+      </div>
+      
+
+      <div className="m-12 pt-36">
         {loading ? (
           <div className="flex justify-center items-center">
             <Loader />
