@@ -92,7 +92,7 @@ const Characters = () => {
   return (
     <div className="mt-[85px] p-8 mx-4 md:mx-10 lg:mx-20 xl:mx-32">
       <div className='fixed z-50' style={{position: 'fixed', backgroundColor: '#121212',
-        width: '100vw', padding: '50px'
+        width: '100vw', padding: '40px'
       }}>
         <Search
           type="text"
@@ -104,13 +104,13 @@ const Characters = () => {
       </div>
       
 
-      <div className="m-12 pt-36">
+      <div className="m-2 pt-28">
         {loading ? (
           <div className="flex justify-center items-center">
             <Loader />
           </div>
         ) : (
-          <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6 overflow-y-auto max-h-700">
+          <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 overflow-y-auto max-h-500 ">
             {searchText ? (
               <RenderCards data={searchedResults} />
             ) : (
