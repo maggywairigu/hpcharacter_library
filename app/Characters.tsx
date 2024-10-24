@@ -90,8 +90,8 @@ const Characters = () => {
   };
 
   return (
-    <div className="mt-[85px] p-8 mx-4 md:mx-10 lg:mx-20 xl:mx-32">
-      <div className='fixed z-50' style={{position: 'fixed', backgroundColor: '#121212',
+    <div className="mt-[55px] mb-[85px] p-8 sm:p-2 mx-4 md:mx-10 lg:mx-20 xl:mx-32 ">
+      <div className='fixed z-40' style={{position: 'fixed', backgroundColor: '#121212',
         width: '100vw', padding: '40px'
       }}>
         <Search
@@ -104,7 +104,7 @@ const Characters = () => {
       </div>
       
 
-      <div className="m-2 pt-28">
+      <div className="pt-28 mt-8">
         {loading ? (
           <div className="flex justify-center items-center">
             <Loader />

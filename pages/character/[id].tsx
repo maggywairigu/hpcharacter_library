@@ -43,14 +43,14 @@ const CharacterPage = () => {
           <Link href="/">
             <FaArrowLeft className='link' 
             style={{fontSize: 20, color: '#121212', cursor: 'pointer', padding: 20,
-            position: 'absolute', left: "20%"}}/>
+            position: 'absolute', left: "10%"}}/>
           </Link>
         </div>
 
         {character ? (
           <div 
           style={{background: 'linear-gradient(to right, #3c3b3f, #605c3c)', borderRadius: '15px 0 15px 0', 
-            boxShadow: '21px 22px 5px 0px rgba(0,0,0,0.45)', width: '40%', margin: 'auto', padding: '10px'
+            boxShadow: '21px 22px 5px 0px rgba(0,0,0,0.45)', width: '45%', margin: 'auto', padding: '10px'
           }} className='card'>
 
             <div style={{margin: 'auto', padding: "3px 1px", width: '34%',

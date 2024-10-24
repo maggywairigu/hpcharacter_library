@@ -15,8 +15,8 @@ const Search: React.FC<SearchProps> = ({ type, name, placeholder, value, handleC
                 type={type}
                 id={name}
                 name={name}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
-                focus:ring-[#6469ff] focus:border-[#6469ff] outline-none block w-[1000px] md:w-[700px] p-3 "
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm sm:text-xs rounded-lg
+                focus:ring-[#6469ff] focus:border-[#6469ff] outline-none block w-[full] md:w-[600px] sm:w-[250px] p-2 "
                 placeholder={placeholder}
                 value={value}
                 onChange={handleChange}

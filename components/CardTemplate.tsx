@@ -39,7 +39,7 @@ const CardTemplate: React.FC<CharacterCardProps> = ({ image, name, dateOfBirth, 
         <Link
           href={`/character/${encodeURIComponent(id)}`}
           
-          className='text-white font-bold black-gradient h-5 md:h-12 rounded-md flex
+          className='text-white font-bold black-gradient h-8 md:h-12 rounded-md flex
           justify-center items-center cursor-pointer bg-primary hover:bg-tertiary mt-5 md:mt-0'
 
         >
