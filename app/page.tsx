@@ -6,8 +6,7 @@ import Search from "@/components/Search";
 const Home = () => {
     return (
         <div className='w-full h-screen '>
-            <Navbar />  
-                     
+            <Navbar />     
             <Characters/>
         
         </div>
